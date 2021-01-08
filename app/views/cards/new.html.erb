@@ -1,0 +1,64 @@
+<div class="container">
+    <h1 class="text-center">Credit Card Payment Gateway</h1>
+    <hr>
+
+    <div class="row justify-content-center">
+        <div class="col-5">
+            <% flash.each do |name, msg| %>
+                <div class="alert alert-success alert-dismissible fade show rounded shadow" role="alert">
+                    <%= msg %>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <% end %>
+            <% if @card.errors.any? %>
+                <div class="alert alert-danger alert-dismissible fade show shadow rounded" role="alert">
+                    <p>Below errors are prevented to save your card details</p>
+                    <ul>
+                        <% @card.errors.full_messages.each do |msg| %>
+                                <li>
+                                    <%= msg %>
+                                </li>
+                        <% end %>
+                    </ul>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            <% end %>
+
+            <%= form_with(model: @card, url: root_path, local: true, class:"rounded shadow p-2 mt-3 bg-light") do |form| %>
+                <div class="form-group p-4 text-center">
+                    <strong> Payment Details </strong>
+                </div>
+                <hr>
+                <div class="form-group">
+                    <div>
+                        <%= form.label :card_number, "CARD NUMBER" %>
+                        <%= form.text_field :card_number, class:"form-control", placeholder:"VALID CARD NUMBER" %>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        <%= form.label :expiration_date, "EXPIRATION DATE" %>
+                        <%= form.text_field :expiration_date, class:"form-control", placeholder:"DD/MM/YYYY" %>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <%= form.label :cvc, "CVC" %>
+                        <%= form.text_field :cvc, class:"form-control", placeholder:"CVC" %>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div>
+                        <%= form.label :card_owner, "CARD OWNER" %>
+                        <%= form.text_field :card_owner, class:"form-control", placeholder:"CARD OWNER NAME" %>
+                    </div>
+                </div>
+                <div class="form-group text-center">
+                    <%= form.submit "Save card", class:"form-control btn btn-outline-success" %>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>
