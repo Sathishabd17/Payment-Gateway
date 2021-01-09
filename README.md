@@ -1,24 +1,17 @@
-# README
+# Payment Gateway
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Overview
 
-Things you may want to cover:
+This is an simple payment gateway application to save our credit card details.<br/>
 
-* Ruby version
+Live demo: https://card-gateway.herokuapp.com/
 
-* System dependencies
+### Languages & frameworks
 
-* Configuration
+    1. Ruby
+    2. Rails framework
 
-* Database creation
+### Database and deployment
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+    Sqllite3 - for developement and testing environment.<br/>
+    Postgres - for prodution environment.
